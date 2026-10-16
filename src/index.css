@@ -14,3 +14,17 @@ body {
   color: var(--color-tinta);
   font-family: var(--font-sans);
 }
+
+@keyframes scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(18rem); }
+}
+
+.linha-scan {
+  animation: scan 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 12px var(--color-destaque);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linha-scan { animation: none; top: 50%; }
+}
