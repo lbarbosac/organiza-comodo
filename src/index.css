@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", system-ui, sans-serif;
+  --color-papel: #f5f2ec;
+  --color-tinta: #1a1814;
+  --color-suave: #6b665c;
+  --color-linha: #dcd6ca;
+  --color-destaque: #d9411e;
+}
+
+body {
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+}
