@@ -61,8 +61,8 @@ export default async function handler(req: Req, res: Res) {
   const ai = new GoogleGenAI({ apiKey: chave });
 
   try {
-    const resultado = await obterResultado(async () => {
-      const resposta = await ai.models.generateContent({
+    const gerar = () =>
+      ai.models.generateContent({
         model: modelo,
         contents: [{ role: "user", parts: [{ inlineData: { mimeType, data: imagem } }, { text: "Analise este cômodo." }] }],
         config: {
@@ -72,7 +72,16 @@ export default async function handler(req: Req, res: Res) {
           responseSchema,
         },
       });
-      return resposta.text;
+
+    const resultado = await obterResultado(async () => {
+      try {
+        return (await gerar()).text;
+      } catch (e) {
+        // 503 = modelo sobrecarregado (comum na cota gratuita): uma nova tentativa costuma passar.
+        if ((e as { status?: number }).status !== 503) throw e;
+        await new Promise((ok) => setTimeout(ok, 1500));
+        return (await gerar()).text;
+      }
     });
     return res.status(200).json(resultado);
   } catch (e) {
