@@ -6,7 +6,7 @@ Tire uma foto de um cômodo bagunçado e receba um plano de ação específico: 
 Vite + React + TypeScript + Tailwind · funções Node.js em `/api` (Vercel) · Gemini via `@google/genai` · Zod.
 
 ## Estado atual
-Fatia 2 pronta: tela com dados mock + `/api/analisar` (Gemini, Zod, 1 retry, rate limit por IP). O front ainda não chama a API (Fatia 3). Ver `docs/PRIMEIRO-PROMPT.md`.
+Fatias 1 a 3 prontas: foto comprimida no navegador, `/api/analisar` (Gemini, Zod, 1 retry, rate limit por IP) e tela ligada à API. Use `?mock=1` na URL para ver a tela sem chamar a API. Ver `docs/PRIMEIRO-PROMPT.md`.
 
 ## Documentos
 - `CLAUDE.md`: regras do projeto para o Claude Code
@@ -19,5 +19,5 @@ Fatia 2 pronta: tela com dados mock + `/api/analisar` (Gemini, Zod, 1 retry, rat
 ```bash
 cp .env.example .env.local   # preencha GEMINI_API_KEY
 npm install
-npm run dev
+npx vercel dev   # serve o front e a pasta api juntos (npm run dev serve só o front; use ?mock=1)
 ```
