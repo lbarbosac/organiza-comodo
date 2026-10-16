@@ -6,7 +6,7 @@ Tire uma foto de um cômodo bagunçado e receba um plano de ação específico: 
 Vite + React + TypeScript + Tailwind · funções Node.js em `/api` (Vercel) · Gemini via `@google/genai` · Zod.
 
 ## Estado atual
-Kit de partida: documentação, prompt e schema. O código do app será construído em fatias com o Claude Code (ver `docs/PRIMEIRO-PROMPT.md`).
+Fatia 2 pronta: tela com dados mock + `/api/analisar` (Gemini, Zod, 1 retry, rate limit por IP). O front ainda não chama a API (Fatia 3). Ver `docs/PRIMEIRO-PROMPT.md`.
 
 ## Documentos
 - `CLAUDE.md`: regras do projeto para o Claude Code
