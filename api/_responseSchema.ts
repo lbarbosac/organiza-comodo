@@ -43,7 +43,10 @@ export const responseSchema: Schema = {
     foto_valida: { type: Type.BOOLEAN },
     motivo_invalido: { type: Type.STRING, nullable: true },
     comodo: { type: Type.STRING },
-    nivel_bagunca: { type: Type.INTEGER },
+    nivel_bagunca: {
+      type: Type.INTEGER,
+      description: "0 = arrumado, 5 = bagunça moderada, 8-10 = chão e móveis tomados por objetos",
+    },
     resumo: { type: Type.STRING },
     comeco_por_aqui: {
       type: Type.OBJECT,
